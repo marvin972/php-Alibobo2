@@ -33,7 +33,14 @@ if (isset($_POST['frmLogin'])) {
 
         require './includes/frmLogin.php';
     } else {
-        echo "Tout est OK";
+        
+        if (verifierLogin($email, $mdp)){
+            $_SESSION['login'] = true;
+        echo "<script>window.location.replace('http://localhost/php-fred/index.php?page=accueil')</script>";
+        } else {
+            echo "Erreur dans votre login/password";
+        }
+
     }
 }
 
