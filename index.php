@@ -1,9 +1,15 @@
 <?php
 
+session_start();
+
+$_SESSION['message'] = "Il fait chaud";
+
+
 require_once './functions/autoLoad.php';
 autoLoad("*.php");
 
 require __DIR__ . '/vendor/autoload.php';
+dump($_SESSION);
 
 // Définir le fuseau horaire dans lequel le serveur se trouve
 date_default_timezone_set('Europe/Paris');
